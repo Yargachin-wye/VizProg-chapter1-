@@ -1,0 +1,43 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Lab1.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="600"
+        x:Class="Lab1.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Lab1"
+        Width = "400" Height ="600">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    <TextBox Name="TextBox" IsUndoEnabled="False" Focusable="False" Grid.ColumnSpan="4" Grid.Row="0" Grid.Column="0" Text="{Binding Greeting}" FontSize="66"/>
+    <Button Name="Button1" Command="{Binding OnclickCommand}" CommandParameter="I" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="I" FontSize="36" Grid.Row="1" Grid.Column="0" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Button Name="Button2" Command="{Binding OnclickCommand}" CommandParameter="L" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="L" FontSize="36" Grid.Row="1" Grid.Column="1" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Button Name="Button3" Command="{Binding OnclickCommand}" CommandParameter="M" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="M" FontSize="36" Grid.Row="1" Grid.Column="2" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Button Name="Button4" Command="{Binding OnclickCommand}" CommandParameter="*" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="*" FontSize="36" Grid.Row="1" Grid.Column="3" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Button Name="Button5" Command="{Binding OnclickCommand}" CommandParameter="V" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="V" FontSize="36" Grid.Row="2" Grid.Column="0" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Button Name="Button6" Command="{Binding OnclickCommand}" CommandParameter="C" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="C" FontSize="36" Grid.Row="2" Grid.Column="1" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Button Name="Button7" Command="{Binding OnclickCommand}" CommandParameter="+" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="+" FontSize="36" Grid.Row="2" Grid.Column="2" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Button Name="Button8" Command="{Binding OnclickCommand}" CommandParameter="/" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="/" FontSize="36" Grid.Row="2" Grid.Column="3" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Button Name="Button9" Command="{Binding OnclickCommand}" CommandParameter="X" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="X" FontSize="36" Grid.Row="3" Grid.Column="0" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Button Name="Button10" Command="{Binding OnclickCommand}" CommandParameter="D" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="D" FontSize="36" Grid.Row="3" Grid.Column="1" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Button Name="Button11" Command="{Binding OnclickCommand}" CommandParameter="-" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="-" FontSize="36" Grid.Row="3" Grid.Column="2" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Button Name="Button12" Command="{Binding OnclickCommand}" CommandParameter="=" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="=" FontSize="36" Grid.Row="3" Grid.Column="3" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+  </Grid>
+</Window>
