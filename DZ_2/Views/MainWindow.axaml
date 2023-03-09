@@ -1,0 +1,78 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:DZ_2.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		    xmlns:m="using:DZ_2.Models"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        MinWidth="800" MinHeight="450"
+        x:Class="DZ_2.Views.MainWindow"
+        Icon="/Assets/journaling.ico"
+        Title="Журнал">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+  <Grid RowDefinitions="30*,340*,20*,30*,30*" ColumnDefinitions="*,*,*,*,*,*,*" ShowGridLines="False">
+
+    <DockPanel Grid.Row="0">
+      <Menu DockPanel.Dock="Top" VerticalAlignment="Top">
+        <MenuItem Header="_File">
+          <MenuItem Name="Save" Header="Save"/>
+          <MenuItem Name="Load" Header="Load"/>
+          <MenuItem Name="Exit" Header="Exit"/>
+        </MenuItem>
+        <MenuItem Name="About" Header="About" >
+        </MenuItem>
+      </Menu>
+    </DockPanel>
+
+    <DataGrid Name="MyDataGrid1" Items="{Binding Notes}" CanUserResizeColumns="True" Grid.Row="1" Grid.ColumnSpan="7" AutoGenerateColumns="False">
+      <DataGrid.Columns>
+        <DataGridTextColumn Width="30*" Header="ФИО" Binding="{Binding Fio}"/>
+        <DataGridTextColumn Width="5*" Header="1" Binding="{Binding Grade1}"/>
+        <DataGridTextColumn Width="5*" Header="2" Binding="{Binding Grade2}"/>
+        <DataGridTextColumn Width="5*" Header="3" Binding="{Binding Grade3}"/>
+        <DataGridTextColumn Width="5*" Header="4" Binding="{Binding Grade4}"/>
+        <DataGridTextColumn Width="5*" Header="5" Binding="{Binding Grade5}"/>
+        <DataGridTextColumn Width="5*" Header="6" Binding="{Binding Grade6}"/>
+        <DataGridTextColumn Width="5*" Header="7" Binding="{Binding Grade7}"/>
+        <DataGridTemplateColumn Header="Ср" IsReadOnly="True">
+          <DataGridTemplateColumn.CellTemplate>
+            <DataTemplate DataType="m:Note">
+              <TextBox IsReadOnly="True" Background="{Binding MyBrush}" Text="{Binding Average}" Width="60"/>
+            </DataTemplate>
+          </DataGridTemplateColumn.CellTemplate>
+          <DataGridTemplateColumn.CellEditingTemplate>
+            <DataTemplate DataType="m:Note">
+              <TextBox Text="{Binding Average}" />
+            </DataTemplate>
+          </DataGridTemplateColumn.CellEditingTemplate>
+        </DataGridTemplateColumn>
+
+
+
+        <DataGridCheckBoxColumn Width="5*" Binding="{Binding Check}" />
+      </DataGrid.Columns>
+    </DataGrid>
+
+    <TextBlock Grid.Row="2" Grid.Column="0" Text="Предмет 1" HorizontalAlignment="Center"/>
+    <TextBox IsReadOnly="True" Grid.Row="3" Grid.Column="0" Width="110" HorizontalContentAlignment="Center"  Text="{Binding Control1}" Background="{Binding Color1}" HorizontalAlignment="Center"/>
+    <TextBlock Grid.Row="2" Grid.Column="1" Text="Предмет 2" HorizontalAlignment="Center"/>
+    <TextBox IsReadOnly="True" Grid.Row="3" Grid.Column="1" Width="110" HorizontalContentAlignment="Center" Text="{Binding Control2}" Background="{Binding Color2}" HorizontalAlignment="Center"/>
+    <TextBlock Grid.Row="2" Grid.Column="2" Text="Предмет 3" HorizontalAlignment="Center"/>
+    <TextBox IsReadOnly="True" Grid.Row="3" Grid.Column="2" Width="110" HorizontalContentAlignment="Center" Text="{Binding Control3}" Background="{Binding Color3}" HorizontalAlignment="Center"/>
+    <TextBlock Grid.Row="2" Grid.Column="3" Text="Предмет 4" HorizontalAlignment="Center"/>
+    <TextBox IsReadOnly="True" Grid.Row="3" Grid.Column="3" Width="110" HorizontalContentAlignment="Center" Text="{Binding Control4}" Background="{Binding Color4}" HorizontalAlignment="Center"/>
+    <TextBlock Grid.Row="2" Grid.Column="4" Text="Предмет 5" HorizontalAlignment="Center"/>
+    <TextBox IsReadOnly="True" Grid.Row="3" Grid.Column="4" Width="110" HorizontalContentAlignment="Center" Text="{Binding Control5}" Background="{Binding Color5}" HorizontalAlignment="Center"/>
+    <TextBlock Grid.Row="2" Grid.Column="5" Text="Предмет 6" HorizontalAlignment="Center"/>
+    <TextBox IsReadOnly="True" Grid.Row="3" Grid.Column="5" Width="110" HorizontalContentAlignment="Center" Text="{Binding Control6}" Background="{Binding Color6}" HorizontalAlignment="Center"/>
+    <TextBlock Grid.Row="2" Grid.Column="6" Text="Предмет 7" HorizontalAlignment="Center"/>
+    <TextBox IsReadOnly="True" Grid.Row="3" Grid.Column="6" Width="110" HorizontalContentAlignment="Center" Text="{Binding Control7}" Background="{Binding Color7}" HorizontalAlignment="Center"/>
+
+    <Button Name="Add" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="7" Height="30" Width="400" Content="Добавить" HorizontalAlignment="Left" HorizontalContentAlignment="Center"/>
+    <Button Name="Delete" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="7" Height="30" Width="400" Content="Удалить" HorizontalAlignment="Right" HorizontalContentAlignment="Center" />
+  </Grid>
+</Window>
