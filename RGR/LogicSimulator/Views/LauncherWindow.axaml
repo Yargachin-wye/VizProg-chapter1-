@@ -1,0 +1,59 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:LogicSimulator.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+		Width="800" Height="600"
+        x:Class="LogicSimulator.Views.LauncherWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="LogSim"
+		Padding="8" Background="#20B2AA">
+
+    <Design.DataContext>
+        <vm:LauncherWindowViewModel/>
+    </Design.DataContext>
+
+	<Window.Styles>
+		<Style Selector="ListBoxItem">
+			<Setter Property="Padding" Value="0"/>
+			<Setter Property="Margin" Value="0 0 0 10"/>
+		</Style>
+		<Style Selector="Button">
+			<Setter Property="BorderThickness" Value="4"/>
+			<Setter Property="BorderBrush" Value="#00FF00"/>
+			<Setter Property="CornerRadius" Value="8"/>
+			<Setter Property="Padding" Value="10"/>
+			<Setter Property="FontSize" Value="24"/>
+			<Setter Property="HorizontalAlignment" Value="Left"/>
+		</Style>
+		<Style Selector="Border.b">
+			<Setter Property="BorderThickness" Value="4"/>
+			<Setter Property="BorderBrush" Value="#00FF00"/>
+			<Setter Property="CornerRadius" Value="8"/>
+			<Setter Property="Padding" Value="10"/>
+		</Style>
+		<Style Selector="TextBlock.tb">
+			<Setter Property="Margin" Value="5"/>
+			<Setter Property="Padding" Value="4"/>
+			<Setter Property="FontSize" Value="32"/>
+			<Setter Property="HorizontalAlignment" Value="Left"/>
+		</Style>
+	</Window.Styles>
+
+	<Grid RowDefinitions="auto,auto,auto,*,auto">
+		<Button Command="{Binding Create}">Создать проект</Button>
+		<Button Grid.Row="1" Command="{Binding Open}">Открыть проект</Button>
+		<TextBlock Grid.Row="2" Classes="tb">Сохраненные проекты:</TextBlock>
+		<ListBox Grid.Row="3" Items="{Binding ProjectList}" DoubleTapped="DTapped" Padding="10">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Border Classes="b">
+						<TextBlock Text="{Binding}" Tag="{Binding}"/>
+					</Border>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<Button Grid.Row="4" Command="{Binding Exit}">Выход</Button>
+	</Grid>
+</Window>
